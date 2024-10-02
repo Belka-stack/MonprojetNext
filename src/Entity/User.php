@@ -1,4 +1,5 @@
 <?php
+//  Le fichier entity commence par <?php car c'est un fichier PHP.Cette entité est une class qui se nomme User.Elle un namespace comme toutes les classes avec Symfony et utilise les classes UserRepository ainsi q'une autre classe de Doctrine aui sert au mapping Mapping as ORM.
 
 namespace App\Entity;
 
@@ -6,6 +7,10 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+
+//Vous avez certainement remarqué l’attribut ci-dessous qui est positionné avant que la classe ne commence :
+//#[ORM\Entity(repositoryClass: UserRepository::class)].Cet attribut permet de préciser à Doctrine le Repository qui est relié avec cette Entité. Il s’applique sur la classe. Voilà pourquoi il est situé juste avant celle-ci.
+
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]

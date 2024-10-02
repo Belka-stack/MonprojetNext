@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+<style>
+  main {
+    margin-top: 8rem;
+  }
+  
+  .blockAbout {
+    display: flex;
+    margin-left: 10px;
+  }
+  
+  .blockAbout img {
+    width: 100%;
+  }
+  
+  .contentOne{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+  .contentOne h1{
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .contentOne p{
+    font-size: 1.5rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .contentOne {
+      text-align: center;
+      padding-top: 3rem;
+    }
+    .contentOne h1 {
+      font-size: 1.5rem;
+    }
+    .contentOne p{
+    font-size: 1rem;
+  }
+  }
+    
+</style>
+<main>
+  <div class="blockAbout">
+    <div class="row ">
+        <div class="col-12 col-lg-6">
+            <img src="{{asset('pictures/imgAbout/image.jpg')}}" alt="">
+        </div>
+        <div class="col-12 col-lg-6 contentOne">
+            <h1>Who we are?</h1>
+            <p>Nomadscreen is a young French start-up which has existed for one year and which aims to facilitate the mobility of people who use several screens, whether professionally or personally.</p>
+        </div>
+
+    </div>
+</div>
+</main>
+{% endblock %}

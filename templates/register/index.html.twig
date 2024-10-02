@@ -1,7 +1,21 @@
 {# suppression de la structure par défaut proposée par symfony#}
 
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} 
 
-{% block body %}
-Projet
+
+{% block stylesheets %}
+<link href="{{ asset('assets/css/register.css')}}" rel="stylesheet">
+{% endblock  %}
+
+{% block content %}
+<div class="container my-5">
+    
+    <h3>REGISTER</h3>
+
+    {{ form(registerForm, 
+        {'attr' : {'class' : 'formRegister'}
+    })
+    }}
+
+</div>
 {% endblock %}
