@@ -1,4 +1,6 @@
-/* Générale */
+/* Style du footer et header */
+
+/*  Générale */
 
 * {
   margin: 0;
@@ -26,7 +28,7 @@ body {
 }
 .logoTitre img {
   width: 2.5rem;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .logoTitre h1 {
@@ -44,7 +46,6 @@ body {
   text-decoration: none;
   color: black;
   font-size: 25px;
-
 }
 
 .connect {
@@ -114,8 +115,8 @@ body {
   height: 5px;
   background-color: black;
   margin: 6px 0;
+  margin-right: 15px;
 }
-
 
 /******* FOOTER *******/
 
@@ -160,8 +161,6 @@ body {
   font-size: 1.2rem;
 }
 
-
-
 /* Footer 2 */
 
 .blockFooter2 {
@@ -179,8 +178,7 @@ body {
 iframe {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    height: 25rem;
-  
+  height: 25rem;
 }
 
 .adres {
@@ -193,7 +191,6 @@ iframe {
 .adres p {
   font-size: 1.5rem;
 }
-
 
 /* Footer 3 */
 
@@ -218,6 +215,13 @@ iframe {
   justify-content: center;
 }
 
+.legalNotices a {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
 /***** Media Querie *******/
 
 @media screen and (max-width: 768px) {
@@ -229,6 +233,7 @@ iframe {
   }
   .logoTitre img {
     width: 1.5rem;
+    margin-left: 10px;
   }
   .logoTitre h1 {
     font-size: 1rem;
@@ -284,6 +289,9 @@ iframe {
   }
 
   .copyright {
-    font-size: 0.75rem;
+    font-size: 1rem;
+  }
+  .legalNotices a {
+    font-size: 1rem;
   }
 }

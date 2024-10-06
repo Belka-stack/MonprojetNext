@@ -3,165 +3,49 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nomadscreen</title>
+    <title>{% block title %}Nomadscreen{% endblock %}</title>
     <meta name="description" content="La boutique spécialisée dans les extensiosn d'écrans mobiles">
+    
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
     crossorigin="anonymous" />
+    
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+    
     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet" />
-    
-    {# <!-- La fonction asset() I want you to notice something. So far, Symfony is not involved at all in how we organize or use images or CSS files. Nope. Our setup is dead simple: we put things in the public/ directory... then refer to them with their paths.But does Symfony have any cool features to help work with CSS and JavaScript? Absolutely. It's called Webpack Encore and Stimulus. And we'll talk about both of those towards the end of the tutorial.But even in this simple setup - where we just put files in public/ and point to them - Symfony does have one minor feature: the asset() function.It works like this: instead of using /styles/app.css, say {{ asset() }} and then, inside quotes, move our path there... but without the opening "/". --> #}
 
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/home.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/about.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/styles/app.css')}}">
+    
     {% block stylesheets %}{% endblock %}
+
+    {% block javascripts %}
+    {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
 
 </head>
 <body>
 
-    {% block header %}
-        <div class="row menuHeader">
-        <div class="col-2 logoTitre">
-            <a href="index.php"> <img src="{{ asset('pictures/imgPageAccueil/logo.png')}}" alt="image-logo" /></a>
-            <h1>NOMADSCREEN</h1>
-        </div>
-        <div class="col-8 menudesktop">
-            <a href="#">Home</a>
-            <a href="#">Products</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
-            <div class="col-2 connect">
-            <a href="#">
-            <ion-icon class="person" name="person"></ion-icon
-            ></a>
-            <a href="#">
-            <ion-icon class="cart" name="cart"></ion-icon
-            ></a>
-        </div>
-            
-        
-        <div id="mobile" class="menumobile">
-            <a id="closeBtn" href="#" class="close">×</a>
-            <a href="#">Home</a>
-            <a href="#">Products</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">
-                <ion-icon class="person" name="person"></ion-icon
-            ></a>
-            <a href="#">
-                <ion-icon class="cart" name="cart"></ion-icon></a>
-        
-            
-    </div>
-        
-        <a href="#" id="openBtn">
-            <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span
-            </span>
-        </a>
-        
-        </div>
-    
-        
 
-    {% endblock %}
+    {% include "headFoot/header.html.twig" %}
+
+    {% block content %}{% endblock %}
+
+    {% include "headFoot/footer.html.twig" %}
 
 
 
-{% block content %}
+
+<script src="{{ asset('assets/app.js')}}"></script>
 
 
-{% endblock %}
-
-
-    <!-- FOOTER -->
-    {% block footer %}
-        <div class="row blockFooter1 ">
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon1" name="airplane"></ion-icon>
-            Worldwide Shipping
-            </h2>
-            <p>We offer international shipping to your countries and fast delivrery.</p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon2" name="thumbs-up"></ion-icon>
-            Best Quality
-            </h2>
-            <p>
-            The best screens are powerful enough to handle both work
-            </p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon3" name="trophy"></ion-icon>
-            Best Offers
-            </h2>
-            <p>
-            It's an excellent monitor that isn't the absolute best at one
-            specific usage
-            </p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon4" name="lock"></ion-icon>
-            Secure Payments
-            </h2>
-            <p>
-            It's an excellent monitor that isn't the absolute best at one
-            specific usage
-            </p>
-        </div>
-        </div>
-        <div class="row blockFooter2">
-        <div class="col-12 col-md-6 col-lg-6 map">
-            
-                <iframe width="600" height="500" src="https://maps.google.com/maps?q=2boulevardSébastopoleParis&t=&z=7&ie=UTF8&iwloc=&output=embed"
-        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-    
-        </div>
-        <div class="col-12 col-md-6 col-lg-6 adres">
-            <h2>NOMADSCREEN</h2>
-            <p><ion-icon name="pin"></ion-icon>2 Bd de Sébastopol
-                75004 Paris
-            </p>
-            <p><ion-icon name="call"></ion-icon>+33 1 25 38 42 57</p>
-            <p><ion-icon name="at"></ion-icon>contact@nomadscreen.com</p>
-
-        </div>
-        </div>
-        <div class="row blockFooter3">
-            <div class="col-12 col-md-6 col-lg-6 copyright">
-                <p>Copyright©<?php echo date("Y") ?>-NOMADSCREEN</p>
-            </div>
-            <div class="col-12 col-md-6 col-lg-6  logoSociaux">
-                <a href="https://www.linkedin.com">
-                    <ion-icon class="linkedin" name="logo-linkedin"></ion-icon ></a>
-        
-                <a href="https://www.instagram.com"
-                    ><ion-icon class="instagram" name="logo-instagram"></ion-icon></a>
-        
-                <a href="https://www.facebook.com"
-                    ><ion-icon class="facebook" name="logo-facebook"></ion-icon></a>
-            </div>
-            </div>
-    {% endblock %}
-    
-
-
-<script src="{{ asset('assets/js/global.js')}}"></script>
 </body>
 </html>
+
+
