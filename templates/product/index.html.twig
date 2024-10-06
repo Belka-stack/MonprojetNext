@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %} {% block title %}ProductController!{% endblock %}
+{% block content %}
+<style>
+main {
+    margin-top: 8rem;
+}
+.imgProduit {
+    display: flex;
+    justify-content: center;
+}
+
+.imgProduit img {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.imgProduit a {
+    background: #ffde4d;
+    position: absolute;
+    bottom: 2rem;
+}
+
+.card {
+    height: 600px;
+}
+  /***** Media Querie *******/
+
+@media screen and (max-width: 768px) {
+    .card {
+    margin: 1rem;
+    }
+    .card {
+    height: 550px;
+    }
+}
+</style>
+<main>
+<div class="container-fluid">
+    <div class="row imgProduit">
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card">
+        <img
+            src="{{ asset('pictures/imgPageAccueil/img1.jpeg')}}"
+            class="card-img-top w-100"
+            alt="..."
+        />
+        <div class="card-body">
+            <h5 class="card-title">Four Display</h5>
+            <p class="card-text">
+            Four Screen Laptop FHD Expansion Monitor with 1 Cable for 2
+            Displays for Windows, MacOS for 15-17.3 inch Laptop
+            </p>
+            <a href="#" class="btn">Add to cart</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card">
+        <img
+            src="{{ asset('pictures/imgPageAccueil/main-image-4.jpeg')}}"
+            class="card-img-top w-100"
+            alt="..."
+        />
+        <div class="card-body">
+            <h5 class="card-title">Three Display</h5>
+            <p class="card-text">
+            Triple Screen Laptop FHD Expansion Monitor with 1 Cable for 2
+            Displays for Windows, MacOS for 15-17.3 inch Laptop
+            </p>
+            <a href="#" class="btn">Add to cart</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card">
+        <img
+            src="{{asset('pictures/imgPageAccueil/img3.jpeg')}}"
+            class="card-img-top w-100"
+            alt="..."
+        />
+        <div class="card-body">
+            <h5 class="card-title">Two Display</h5>
+            <p class="card-text">
+            Two Screen Laptop FHD Expansion Monitor with 1 Cable for 2
+            Displays for Windows, MacOS for 15-17.3 inch Laptop
+            </p>
+            <a href="#" class="btn">Add to cart</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card">
+        <img
+            src="{{ asset('pictures/imgPageAccueil/img4.jpeg') }}"
+            class="card-img-top w-100"
+            alt="..."
+        />
+        <div class="card-body">
+            <h5 class="card-title">Backpack</h5>
+            <p class="card-text">
+            Here is our backpack. The stylish companion for your daily
+            commute. Its sleek design is unique and it is made 100% from
+            eco-responsible materials.
+            </p>
+            <a href="#" class="btn">Add to cart</a>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</main>
+
+{% endblock %}

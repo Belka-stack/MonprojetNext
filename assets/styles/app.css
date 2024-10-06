@@ -7,11 +7,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
+  overflow-x: hidden;
+  
 }
 
 body {
   background-color: #6495ed;
-  overflow-x: hidden;
+ 
 }
 
 /******* header *******/
@@ -20,6 +22,8 @@ body {
   display: flex;
   height: 12rem;
   background-color: hsl(49, 100%, 65%);
+ 
+  
 }
 
 .logoTitre {
@@ -40,6 +44,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: end;
+  
 }
 
 .menudesktop a {
@@ -74,6 +79,7 @@ body {
   padding-top: 60px;
   transition: left 0.5s ease;
   display: none;
+  
 }
 
 .menumobile a {
@@ -232,12 +238,13 @@ iframe {
     width: 35%;
   }
   .logoTitre img {
-    width: 1.5rem;
-    margin-left: 10px;
+    width: 0.7rem;
+    margin-left: 5px;
   }
   .logoTitre h1 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     margin: 5px;
+    padding: 3px;
   }
   .menudesktop {
     display: none;
@@ -275,7 +282,11 @@ iframe {
   .blockFooter2 {
     height: 24rem;
   }
-
+  
+  .blockFooter3{
+    max-width: 100%;
+    height: auto;
+  }
   iframe {
     width: 60%;
     height: auto;
