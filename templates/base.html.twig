@@ -25,7 +25,7 @@
     rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="{{ asset('assets/styles/app.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
 
     {% block stylesheets %}{% endblock %} {% block javascripts %} {% block
     importmap %}{{
@@ -33,7 +33,8 @@
     }}{% endblock %} {% endblock %}
 </head>
 <body>
-    {% include "headFoot/header.html.twig" %} {% block content %}{% endblock %}
+    {% include "headFoot/header.html.twig" %} 
+    {% block content %}{% endblock %}
     {% include "headFoot/footer.html.twig" %}
 
     <script
@@ -41,6 +42,6 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
     ></script>
-    <script src="{{ asset('assets/app.js') }}"></script>
+    <script src="{{ asset('assets/app.js')}}"></script>
 </body>
 </html>
