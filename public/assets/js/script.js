@@ -16,4 +16,3 @@ navmob.classList.add("active"); // Cette fonction ajoute la classe active à l'�
 function closeNav() {
 navmob.classList.remove("active");// Cette fonction supprime la classe active de l'élément navmob, fermant ainsi le menu.
 }
-
