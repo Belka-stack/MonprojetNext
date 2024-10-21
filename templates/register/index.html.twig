@@ -31,6 +31,10 @@
         color: hsl(49, 100%, 65%);
         font-weight: bold;
     }
+    .pageLogin {
+        color:hsl(49, 100%, 65%) ;
+        font-weight:bold ;
+    }
     
     @media screen and (max-width: 768px) {
     
@@ -50,6 +54,8 @@
         {'attr' : {'class' : 'formRegister'}
     })
     }}
+    <br>
+    Already have an account? <a class="pageLogin" href="{{ path('app_login')}}">Log in</a>
 
 </div>
 {% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %} 
+{% block title %}Login{% endblock %} 
+
+{% block content %}
+
+<style>
+main {
+    margin-top: 8rem;
+}
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    background-color:hsl(49, 100%, 65%);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 5px;
+}
+label {
+    padding-top: 15px;
+    margin: 10px;
+}
+
+h3 {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 1rem;
+}
+.form-control {
+    width: 20rem;
+    margin-bottom: 1rem;
+
+}
+
+.register {
+   padding-top: 1rem ;
+   color: black; 
+}
+
+.butOne {
+    margin-top: 1rem;
+    background-color: black;
+    color: hsl(49, 100%, 65%);
+    font-weight: bold;
+    border-radius: 5px;
+    width: 5rem;
+    padding: 10px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    main {
+        margin-top: 4rem;
+    }
+    
+    .formLogin {
+        width: 90%;
+    }
+    .form-control {
+        width: 17rem;
+    
+    }
+    
+}
+
+</style>
+<main>
+<div class="container my-5">
+    <h3>LOGIN</h3>
+
+    {# La condition permet d'afficher les erreurs dans une div. Error correspond à ce que nous envoyons depyis notre controller #}
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {# Ensuite,il nous parle d'un form avec un attribut action avec la méthode path qui nous permet d'appeler la route app_login qui se trouve dans notre controller équivalent à son url et l'attibut method="post" pour eviter que le mail et le mot de passe s'affiche dans l'url.On a une value last_username dans l'inpu emain,c'est ce qu'on récupère de notre controller #}
+
+    <form action="{{ path('app_login') }}" method="post" class="formLogin">
+        <label for="username">Email:</label>
+        <input class="form-control" type="text" id="username" name="_username" placeholder="Your email" value="{{ last_username }}" required>
+
+        <label for="password">Password:</label>
+        <input class="form-control" type="password" id="password" name="_password" placeholder="Your password" required>
+
+        <input type="hidden" name="_target_path" value="{{ path('app_account')}}">
+
+        Don't have an account?<a class="register" href="{{ path('app_register')}}">Register</a>
+
+        
+        <button type="submit" class="butOne">Submit</button>
+    </form>
+
+</div>
+</main>
+
+{% endblock %}
