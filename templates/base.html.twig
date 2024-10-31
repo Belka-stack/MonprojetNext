@@ -34,8 +34,27 @@
     {% endblock %}
 </head>
 <body>
-    {% include "headFoot/header.html.twig" %} {% block content %}{% endblock %}
+
+
+
+    {% include "headFoot/header.html.twig" %}
+
+    {# Je place mes flash message ici,ainsi je pourrai les utiliser sur tout les pages qui en auront besoin#}
+
+    <div class="container">
+        {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert  mt-4 w-50 text-center alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    </div>
+
+    {% block content %}{% endblock %}
     {% include "headFoot/footer.html.twig" %}
+
+
 
     <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

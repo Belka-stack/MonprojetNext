@@ -24,6 +24,7 @@ class AccountController extends AbstractController
 
     public function password(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager): Response
     {
+    
         $user = $this->getUser();
 
         // En troisième paramètre de ma méthode createForm,j'ajoute un tableau et dans ce tableau nous pouvons envoyer des infos à notre formulaire.
@@ -35,7 +36,12 @@ class AccountController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $entityManager->flush();// Pour mettre à jour BDD 
+            $this->addFlash(
+                'success',
+                'Your password is correctly updated'
+            );
         }
 
         return $this->render('account/password.html.twig', [

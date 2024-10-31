@@ -29,12 +29,23 @@ class RegisterController extends AbstractController
         // Vérifie si le formulaire est soumis et en plus s'il est valid.
 
         if ($form->isSubmitted() && $form->isValid()) {
-           
+            
+            
 
             // alors tu enregistre les datas en BBD 
 
             $entityManager->persist($user);
             $entityManager->flush();
+
+            //et tu envoies un message de confirmation du compte bien créé.
+
+            $this->addFlash(
+                'success',
+                'Your account is correctly created, please log in.'
+            );
+            // Redirection vers la page de connection
+
+            return $this->redirectToRoute('app_login');
         
         }
         

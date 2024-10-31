@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %} 
+{% block content %}
+<style>
+.img-fluid {
+    border-radius: 5px;
+    box-shadow: 5px 3px 3px black; 
+}
+
+main {
+    margin-top: 8rem;
+}
+</style>
+<main>
+<div class="container my-5 text-center">
+<h1>{{ category.name }}</h1>
+
+<p class="fs-4 mt-5">This category contains {{ category.products | length }} product(s)</p>
+
+<div class="row">
+    {% for product in category.products %}
+    <div class="col-md-4 text-center">
+        <a href="{{ path('app_product', { slug : product.slug} ) }}" class="text-decoration-none">
+        <img src="/uploads/{{product.illustration}}" class="img-fluid">
+        <span class="d-block fw-bold text-black fs-4">{{ product.name}}</span>
+    </a>
+        
+        <span class="d-block fs-5">{{product.pricewt|price}}</span>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</main>
+{% endblock %}

@@ -1,0 +1,27 @@
+<style>
+    .bg-light-yellow{
+        background-color: #ffde4d;
+        border-radius: 5px;
+    }
+    @media screen and (max-width: 768px) {
+        .bg-light-yellow {
+            margin-bottom: 2rem;
+        }
+    }
+
+</style>
+
+<ul class="nav flex-column bg-light-yellow ">
+    <li class="nav-item">
+    <a class="nav-link text-black"  href="{{ path('app_account')}}">My orders</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-black" href="#">My addresses</a>
+    <li>
+    <li class="nav-item">
+    <a class="nav-link text-black" href="{{ path('app_account_modify_pwd') }}">Change my password</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-black" href="{{ path('app_logout') }}">Log out</a>
+    </li>
+</ul>

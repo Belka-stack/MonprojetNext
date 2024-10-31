@@ -1,117 +1,42 @@
-{% extends 'base.html.twig' %} {% block title %}ProductController!{% endblock %}
+{% extends 'base.html.twig' %} 
+
 {% block content %}
+
 <style>
-main {
-    margin-top: 8rem;
-}
-.imgProduit {
-    display: flex;
-    justify-content: center;
-}
-
-.imgProduit img {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-.imgProduit a {
-    background: #ffde4d;
-    position: absolute;
-    bottom: 2rem;
-}
-
-.card {
-    height: 40rem;
-}
-  /***** Media Querie *******/
-
-@media screen and (max-width: 768px) {
     main {
-        margin-top: 4rem;
+        margin-top: 8rem;
     }
-
-    .card {
-    margin: 1rem;
+    .btn {
+        margin-top: 1rem;
+        background-color: black;
+        color: hsl(49, 100%, 65%);
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 10px;
     }
-    .card {
-    height: 600px;
+    .btn:hover{
+        background-color: brown;
     }
-}
 </style>
 <main>
-<div class="container-fluid">
-    <div class="row imgProduit">
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="card">
-        <img
-            src="{{ asset('pictures/imgPageAccueil/img1.jpeg')}}"
-            class="card-img-top w-100"
-            alt="..."
-        />
-        <div class="card-body">
-            <h4 class="card-title">Four Display</h4>
-            <p class="card-text">
-            Four Screen Laptop FHD Expansion Monitor with 1 Cable for 2
-            Displays for Windows, MacOS for 15-17.3 inch Laptop
-            </p>
-            <a href="#" class="btn">Add to cart</a>
-        </div>
-        </div>
+<div class="container my-5">
+    <div class="row ">
+    <div class="col-md-6">
+
+        <img src="/uploads/{{ product.illustration }}" alt=" product.name" class="img-fluid">
     </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="card">
-        <img
-            src="{{ asset('pictures/imgPageAccueil/main-image-4.jpeg')}}"
-            class="card-img-top w-100"
-            alt="..."
-        />
-        <div class="card-body">
-            <h4 class="card-title">Three Display</h4>
-            <p class="card-text">
-            Triple Screen Laptop FHD Expansion Monitor with 1 Cable for 2
-            Displays for Windows, MacOS for 15-17.3 inch Laptop
-            </p>
-            <a href="#" class="btn">Add to cart</a>
-        </div>
-        </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="card">
-        <img
-            src="{{asset('pictures/imgPageAccueil/img3.jpeg')}}"
-            class="card-img-top w-100"
-            alt="..."
-        />
-        <div class="card-body">
-            <h4 class="card-title">Two Display</h4>
-            <p class="card-text">
-            Two Screen Laptop FHD Expansion Monitor with 1 Cable for 2
-            Displays for Windows, MacOS for 15-17.3 inch Laptop
-            </p>
-            <a href="#" class="btn">Add to cart</a>
-        </div>
-        </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="card">
-        <img
-            src="{{ asset('pictures/imgPageAccueil/img4.jpeg') }}"
-            class="card-img-top w-100"
-            alt="..."
-        />
-        <div class="card-body">
-            <h4 class="card-title">Backpack</h4>
-            <p class="card-text">
-            Here is our backpack. The stylish companion for your daily
-            commute. Its sleek design is unique and it is made 100% from
-            eco-responsible materials.
-            </p>
-            <a href="#" class="btn">Add to cart</a>
-        </div>
-        </div>
-    </div>
+    <div class="col-md-6">
+        <small><i><a class="text-black fw-bold" href="{{ path('app_category', {slug : product.category.slug } ) }}">{{ product.category.name }}</a> < {{ product.name }}</i></small>
+        <h1>{{ product.name }}</h1>
+        <span class="d-block mb-3">{{ product.pricewt|price }}</span>
+        {{ product.description|raw }} 
+        
+        <a href="{{ path('app_cart_add', { id: product.id} ) }}" class="btn">Add To Cart</a>
+        
     </div>
 </div>
+</div>
+
 </main>
 
 {% endblock %}
