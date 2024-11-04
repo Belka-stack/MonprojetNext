@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block content %}
+<style>
+    .bg {
+        background: #ffde4d;
+        border-radius: 5px;
+        
+    }
+    .btn {
+        text-decoration: none;
+        background: black;
+        color: #ffde4d;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .btn:hover{
+        background-color: brown;
+    }
+</style>
+<div class="container my-5 p-5">
+
+    <h1>My member space</h1>
+
+    
+
+    <div class="row">
+        <div class="col-md-3">
+            
+            {% include 'account/_menu.html.twig' %}
+        </div>
+        <div class="col-md-9">
+        <div class="d-flex justify-content-between">
+            <h5>My addresses</h5>
+            <a href="{{ path('app_account_address_form') }}" class="btn">Add an address</a>
+        </div>
+        
+        {% if app.user.addresses|length == 0 %}
+        <p>You have not yet registered an address on Nomadscreen.</p>
+
+        {% else %}
+            <div class="row">
+
+                {% for address in app.user.addresses %}
+                <div class="col-md-3">
+                    <div class="bg p-2 text-center">
+                        <strong>{{ address.firstname}} {{ address.lastname}}</strong><br/>
+                        {{ address.address}}<br/>
+                        {{ address.postal}}, {{ address.city}}<br/>
+                        {{ address.phone}}<br/>
+                        {{ address.country}}<br/>
+                        <a href="{{ path('app_account_address_form', { id : address.id })}}" class="small text-black fw-bold">Edit</a>
+                        <a href="{{ path('app_account_address_delete', { id : address.id })}}" class="small text-secondary">Delete</a>
+
+                    </div>
+                </div>
+                
+                {% endfor %}
+
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock %}
