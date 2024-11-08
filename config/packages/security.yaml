@@ -20,6 +20,7 @@ security:
                 # "app_login" is the name of the route created previously
                 login_path: app_login
                 check_path: app_login
+                success_handler: App\Security\LoginSuccessHandler  # Utilise le gestionnaire personnalisé ici
             lazy: true
             provider: app_user_provider
 
@@ -35,7 +36,7 @@ security:
         # Dès que account se trouve dans mon url vérifie le compte de mon utilisateur et le rôle de mon utilisateur doit obligatoirement ROLE_USER
         - { path: ^/account, roles: ROLE_USER}
         - { path: ^/order, roles: ROLE_USER}
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
