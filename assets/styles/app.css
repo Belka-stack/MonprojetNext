@@ -221,6 +221,7 @@ iframe {
   height: 6rem;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 .blockFooter3 a {
   color: black;

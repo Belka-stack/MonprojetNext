@@ -11,17 +11,6 @@ main {
     margin: 0 auto; 
 }
 
-.btn {
-    background-color: black;
-    color:  hsl(49, 100%, 65%);
-    font-weight: bold;
-    width: 100%;
-}
-
-.btn:hover{
-    background-color: brown;
-}
-
 #order_addresses .form-check, #order_carriers .form-check  {
     background-color: hsl(49, 100%, 65%);
     padding: 10px 40px;
@@ -35,7 +24,8 @@ main {
 <div class="container my-5 small-container">
 <h1>MY ORDER</h1>
 
-{{ form_start(deliverForm) }}
+{{ form_start(deliverForm, {'attr': {'data-turbo': 'false'}}) }}
+
 
 {{ form_row(deliverForm.addresses) }}
 
@@ -44,6 +34,8 @@ main {
 <hr>
 
 {{ form_row(deliverForm.carriers) }}
+
+
 
 {{ form_end(deliverForm) }}
 
