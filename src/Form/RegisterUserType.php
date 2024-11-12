@@ -66,6 +66,7 @@ class RegisterUserType extends AbstractType
                     'label' => 'Your password',
                     'attr' => [
                         'placeholder' => "Enter your password",
+                        'class' => 'password-field' // Ajout de la classe CSS
                     ],
                     'hash_property_path' => 'password'
                 ],
@@ -74,6 +75,7 @@ class RegisterUserType extends AbstractType
                     'label' => 'Confirm your password',
                     'attr' => [
                         'placeholder' => "Enter your password",
+                        'class' => 'password-field' //Ajout de la classe 
                     ]
                 ],
                 'mapped' => false,

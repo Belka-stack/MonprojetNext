@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %} 
-{% block title %}Login{% endblock %} 
+
 
 {% block content %}
 
@@ -37,8 +37,8 @@ h3 {
 }
 
 .register {
-   padding-top: 1rem ;
-   color: black; 
+padding-top: 1rem ;
+color: black; 
 }
 
 .butOne {
@@ -90,6 +90,13 @@ h3 {
         <label for="password">Password:</label>
         <input class="form-control" type="password" id="password" name="_password" placeholder="Your password" required>
 
+        {# Case à cocher pour afficher/masquer le mot de passe #}
+
+        <div style="margin-bottom: 1rem;">
+            <input type="checkbox" id="show-password" />
+            <label for="show-password">Show password</label>
+        </div>
+
         <input type="hidden" name="_target_path" value="{{ path('app_account')}}">
 
         Don't have an account?<a class="register" href="{{ path('app_register')}}">Register</a>
@@ -100,5 +107,21 @@ h3 {
 
 </div>
 </main>
+
+<!-- Script JavaScript pour basculer l'affichage du mot de passe -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const passwordField = document.getElementById('password');
+        const showPasswordCheckbox = document.getElementById('show-password');
+
+        showPasswordCheckbox.addEventListener('change', function() {
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+    });
+</script>
 
 {% endblock %}

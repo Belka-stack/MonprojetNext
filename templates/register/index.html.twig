@@ -17,6 +17,9 @@
         padding-top: 1rem;
         padding-bottom: 1rem;
         border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
     h3 {
@@ -40,6 +43,16 @@
         color:hsl(49, 100%, 65%) ;
         font-weight:bold ;
     }
+
+    .showPassword{
+
+        margin-top: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+
+    }
+
+    
     
     @media screen and (max-width: 768px) {
     
@@ -55,12 +68,48 @@
     
     <h3>REGISTER</h3>
 
-    {{ form(registerForm, 
-        {'attr' : {'class' : 'formRegister'}
-    })
-    }}
+    {{ form_start(registerForm, {'attr' : {'class' : 'formRegister'}}) }}
+
+    {{ form_row(registerForm.firstname) }}
+    {{ form_row(registerForm.lastname) }}
+    {{ form_row(registerForm.email) }}
+
+    <!-- Mot de passe et confirmation de mot de passe -->
+    {{ form_row(registerForm.plainPassword.first) }}
+    {{ form_row(registerForm.plainPassword.second) }}
+
+    <!-- Case à cocher pour afficher /masquer les mot de passe -->
+
+    <div class="showPassword">
+        <input type="checkbox" id="show-password">
+        <label for="show-password">Show password</label>
+    </div>
+
+    {{ form_row(registerForm.submit)}}
+
+    {{ form_end(registerForm)}}
+
+
     <br>
     Already have an account? <a class="pageLogin" href="{{ path('app_login')}}">Log in</a>
 
 </div>
+
+<!-- Script javascript pour basculer la visibilité des mot de passe -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("Script chargé");  // Vérifier que le script se charge
+        const passwordFields = document.querySelectorAll('.password-field');
+        const showPasswordCheckbox = document.getElementById("show-password");
+
+
+        showPasswordCheckbox.addEventListener("change", function() {
+            const type = showPasswordCheckbox.checked ? "text" : "password";
+            passwordFields.forEach(field => field.type = type);
+        });
+    });
+</script>
+
+
 {% endblock %}
