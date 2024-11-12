@@ -16,6 +16,23 @@ body {
 
 }
 
+    /* Style pour les messages flash de succès */
+    .alert-success {
+      background-color: #28a745; /* Vert */
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+  }
+  
+  /* Style pour les messages flash d'erreur */
+  .alert-error {
+      background-color: #dc3545; /* Rouge */
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+  }
 
 /******* header *******/
 
