@@ -1,10 +1,19 @@
 # see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
     secret: '%env(APP_SECRET)%'
-    #csrf_protection: true
+
+    csrf_protection: true
 
     # Note that the session will be started ONLY if you read or write from it.
-    session: true
+
+    session: 
+
+        enabled: true
+        cookie_secure: auto         # Sécuriser le cookie en envoyant uniquement en HTTPS
+        cookie_samesite: "strict"   # Protection CSRF
+        cookie_httponly: true       # Empêcher l'accès au cookie via JavaScript (XSS)
+        cookie_lifetime: 3600       # Durée de vie du cookie (1 heure)
+        cookie_path: '/'            # Valeur par défaut, accessible sur tout le site
 
     #esi: true
     #fragments: true

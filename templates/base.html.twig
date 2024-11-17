@@ -29,7 +29,8 @@
     <link rel="stylesheet" href="{{ asset('assets/styles/app.css') }}" />
     {% endblock %} 
     
-    {% block javascripts %} 
+    {% block javascripts %}
+    
     {% block importmap %}{{importmap("app")}}{% endblock %} 
     {% endblock %}
 </head>
@@ -63,6 +64,10 @@
     crossorigin="anonymous"
     ></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
-    
+
+
+
+
+
 </body>
 </html>

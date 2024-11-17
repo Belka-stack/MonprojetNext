@@ -1,3 +1,5 @@
+
+
 // Menu Burger
 
 var navmob = document.getElementById("mobile"); // Sélectionne l'élément du menu mobile en utilisant son ID mobile.
@@ -16,3 +18,4 @@ navmob.classList.add("active"); // Cette fonction ajoute la classe active à l'�
 function closeNav() {
 navmob.classList.remove("active");// Cette fonction supprime la classe active de l'élément navmob, fermant ainsi le menu.
 }
+

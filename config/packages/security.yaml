@@ -15,7 +15,7 @@ security:
             security: false
         main:
             logout:
-                path: app_logout # pour le moment la route app_logout n'existe pas
+                path: app_logout 
             form_login:
                 # "app_login" is the name of the route created previously
                 login_path: app_login

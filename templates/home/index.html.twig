@@ -16,16 +16,21 @@
             border-radius: 5px;
     }
 
-    .image-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-        color: black;
-        font-size: 40px;
+    h4 {
+        text-align: center;
+        margin-top: 8rem;
         font-weight: bold;
+        color: #ffde4d;
+        font-size: 2rem;
     }
+
+    .caroussel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
 
     .imgProduit {
     
@@ -33,25 +38,33 @@
         width: 50%;
     }
 
+
+
     @media screen and (max-width: 768px) {
 
         main {
 
             margin-top: 4rem;
         }
-        
+
+        h4 {
+            font-size: 1.2rem;
+        }
     }
 </style>
 <main>
     <div class="container">
     <div class="blockImage">
-
         <img width="100%" src="{{ asset('pictures/imgPageAccueil/hand.jpg')}} " alt="image de main avec carte du monde déssinée dessus sur fon d de ciel bleu et nuageux" />
+
 
     </div>
 
-    <div class="image-text">With Nomadscreen, become free as a bird!</div>
+    
 
+    <h4>All Our Products Are Selling Well !</h4>
+    
+    <div class="caroussel">
     <div class="row imgProduit">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -77,8 +90,9 @@
         </div>
     </div>
 </div>
+</div>
 </main>
-
+</div>
 
 
 {% endblock %}
