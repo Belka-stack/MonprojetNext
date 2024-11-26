@@ -1,21 +1,30 @@
-
-
 // Menu Burger
 
-var navmob = document.getElementById("mobile"); // Sélectionne l'élément du menu mobile en utilisant son ID mobile.
-var openBtn = document.getElementById("openBtn"); // Sélectionne le bouton qui ouvre le menu en utilisant son ID openBtn.
-var closeBtn = document.getElementById("closeBtn");// Sélectionne le bouton qui ferme le menu en utilisant son ID closeBtn.
+// Sélection des éléments HTML
 
-openBtn.onclick = openNav;// Lorsque l'utilisateur clique sur le bouton d'ouverture, la fonction openNav est appelée.
-closeBtn.onclick = closeNav;// Lorsque l'utilisateur clique sur le bouton de fermeture, la fonction closeNav est appelée.
+var navmob = document.getElementById("mobile"); 
+var openBtn = document.getElementById("openBtn"); 
+var closeBtn = document.getElementById("closeBtn");
 
+
+// Quand on clique sur le bouton openBtn (menu burger), la fonction openNav est appelée.
+// Quand on clique sur le bouton closeBtn (icône de fermeture "×"), la fonction closeNav est appelée.
+
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
+
+
+// Cette fonction est appelée quand l'utilisateur clique sur le bouton pour ouvrir le menu mobile.
+//  Elle ajoute la classe CSS "active" à l'élément navmob (le <div> du menu mobile)
 
 function openNav() {
-navmob.classList.add("active"); // Cette fonction ajoute la classe active à l'élément navmob, ce qui active le menu.
+navmob.classList.add("active"); 
 }
 
+// Cette fonction est appelée quand l'utilisateur clique sur le bouton pour fermer le menu mobile.
+// Elle retire la classe CSS "active" de l'élément navmob, ce qui cache le menu.
 
 function closeNav() {
-navmob.classList.remove("active");// Cette fonction supprime la classe active de l'élément navmob, fermant ainsi le menu.
+navmob.classList.remove("active");
 }
 
