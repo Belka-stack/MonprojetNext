@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class RegisterController extends AbstractController
 { 
     // Change le '/register' en '/inscription'
-    #[Route('/register', name: 'app_register')]
+    #[Route('/register', name: 'app_register', methods: ['GET', 'POST'])]
 
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {

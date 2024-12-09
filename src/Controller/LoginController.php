@@ -10,7 +10,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController
 {
-    #[Route('/login', name: 'app_login')]
+    #[Route('/login', name: 'app_login', methods: ['GET', 'POST'])]
     public function index(AuthenticationUtils $authenticationUtils, UserRepository $userRepository): Response
     {
         // Récupérer les erreus d'authentifications
@@ -40,7 +40,7 @@ class LoginController extends AbstractController
 
 
 
-    #[Route('/logout', name: 'app_logout', methods: ['GET'])]
+    #[Route('/logout', name: 'app_logout')]
     public function logout(): never
     {
         
