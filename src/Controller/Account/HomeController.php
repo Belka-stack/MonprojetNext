@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     {
         $orders = $orderRepository->findBy([
             'user' => $this->getUser(),
-            'state' => [2,3]
+            'state' => [1,2,3]
         ]);
 
         return $this->render('account/index.html.twig', [
